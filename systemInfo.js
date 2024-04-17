@@ -1,7 +1,7 @@
 
 const os = require('node:os');
 const getInfoOS = require('./osModule.js');
-const getInfoInterfaces = require('./networkModule.js');
+const {getInfoInterfaces, muestraInterfaz} = require('./networkModule.js');
 
 console.log('--------------------------------------------------------');
 console.log('INFO DEL EQUIPO');
@@ -18,9 +18,18 @@ console.log(`MemoriaTotal: ${memoriaTotal}`);
 console.log(`MemoriaLibre: ${memoriaLibre}`);
 console.log();
 
+
 console.log('--------------------------------------------------------');
 console.log('INFO NETWORK');
 console.log();
 const infoAllInterfaces = getInfoInterfaces(os);
+if (infoAllInterfaces !== null && infoAllInterfaces.length > 0) {
+    infoAllInterfaces.forEach((interfaz) => {
+        muestraInterfaz(interfaz.nameInterfaz, interfaz.listInterfaces);
+    });
+}
+else {
+    console.log('No hay info que mostrar.');
+}
 console.log();
 console.log('--------------------------------------------------------');
