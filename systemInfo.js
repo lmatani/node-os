@@ -31,5 +31,4 @@ if (infoAllInterfaces !== null && infoAllInterfaces.length > 0) {
 else {
     console.log('No hay info que mostrar.');
 }
-console.log();
 console.log('--------------------------------------------------------');
